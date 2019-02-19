@@ -17,6 +17,8 @@ objekti saab hiljem kasutada defandmete t2itmiseks jms
 
 '''
 
+
+
 class ConnectionType(Enum):
     RS232 = 0
     SOCKET = 1
@@ -29,8 +31,29 @@ class SerialThread(threading.Thread):
         self.queue = queue
         self._stopevent = threading.Event()
 
-    def find_serial(self):
-        pass
+    def find_serial():
+        """
+        Find all available COM ports connected to current system
+        """
+        if sys.platform.startswith('win'):
+            ports = ['COM%s' % (i + 1) for i in range(50)] # otsib porte kuni 356-ni
+        elif sys.platform.startswith('linux') or sys.platform.startswith('cygwin'):
+            # this excludes your current terminal "/dev/tty"
+            ports = glob.glob('/dev/tty[A-Za-z]*')
+        elif sys.platform.startswith('darwin'):
+            ports = glob.glob('/dev/tty.*')
+        else:
+            raise EnvironmentError('Unsupported platform')
+
+        result = []
+        for port in ports:
+            try: # exception if not available
+                s = serial.Serial(port)
+                s.close()
+                result.append(port)
+            except (OSError, serial.SerialException):
+                pass
+        return result
 
     def open_ser_connection(self, ser):
         try:

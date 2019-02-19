@@ -69,9 +69,11 @@ class VaisalaPTB330(Config):
         self.thread.write_serial(data)
 
     def get_port(self):
+        # find avaible connected serial devices
         available_ports = SerialThread.find_serial()
         print(available_ports)
         try:
+            # test every available port for PTB330 device
             for port in available_ports:
                 print("Trying connection on {}".format(port))
                 if not int(port.split('COM')[1]) in [6]:
