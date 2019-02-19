@@ -37,8 +37,11 @@ class VaisalaPTB330(Config):
         if self.conn is ConnectionType.RS232:
             sef.open_rs232_thread()
         elif self.conn is ConnectionType.SOCKET:
-            sef.open_socket_thread()
+            self.open_socket_thread()
         self.thread.daemon = True
+        # allow multiple calls to serial queue processing
+        self.repeater = True
+        self.process_serial()
 
     def open_socket_thread(self):
         self.thread = SocketThread(self.queue)
@@ -54,7 +57,7 @@ class VaisalaPTB330(Config):
         else:
             ser = _serial_conn
         self.open_connection(ser)
-        self.process_serial()
+
 
     def open_connection(self, ser):
         try:
@@ -104,11 +107,7 @@ class VaisalaPTB330(Config):
         return self.write(serial_number)
 
     def get_sensor_data(self, data):
-       # device_list = data_output_format.strip('\"').split(';')
-       # print(device_list)
-       # print(data)
         for i, value in enumerate(data.split(";")[2:]):
-         #   print(value)
             try:
                 self.sensors[i].reading = value
                 self.sensors[i].timestamp = 0
@@ -133,7 +132,8 @@ class VaisalaPTB330(Config):
                   #  print("module id : {}".format(module_id))
                     module_sensor_no = module_id[0].split(" ")[1]
                  #   print("module sn : {}".format(module_sensor_no))
-                    module = {'id': module_id[1].strip(), 'device': 'P'+str(module_sensor_no)}
+                    module = {'id': module_id[1].strip(), 
+                        'device': 'P'+str(module_sensor_no)}
                     self.apply_sensor(module)
                 elif self.sensing_mode:
                     self.get_sensor_data(data_in)

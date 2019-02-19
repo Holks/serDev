@@ -10,13 +10,9 @@ import serial
 from enum import Enum
 
 '''
-programm avad COM pordi, ootab seeriali sisendit loeb seni andmeid serialist kuni puhver tyhi
-kontrollib QRkoodi pikkust ja CRC-d (vajalik kuna kasutusel demo programmiversioon, mis annad juhuslikult andmer2mpsu ja ka kui QR-kood on liialt riknenud, et ei ole enam loetav
-loob m66tevahendi klassi objekti{tunnistus, kuup2ev, MVid, KlientID, crckood, ja v6ibolla veel midagi}
-objekti saab hiljem kasutada defandmete t2itmiseks jms
+
 
 '''
-
 
 
 class ConnectionType(Enum):
@@ -36,8 +32,9 @@ class SerialThread(threading.Thread):
         Find all available COM ports connected to current system
         """
         if sys.platform.startswith('win'):
-            ports = ['COM%s' % (i + 1) for i in range(50)] # otsib porte kuni 356-ni
-        elif sys.platform.startswith('linux') or sys.platform.startswith('cygwin'):
+            ports = ['COM%s' % (i + 1) for i in range(50)]
+        elif sys.platform.startswith('linux') \
+            or sys.platform.startswith('cygwin'):
             # this excludes your current terminal "/dev/tty"
             ports = glob.glob('/dev/tty[A-Za-z]*')
         elif sys.platform.startswith('darwin'):
@@ -61,7 +58,8 @@ class SerialThread(threading.Thread):
             self.conn = serial.Serial(ser['port'], ser['baudrate'],
                 bytesize=8, parity='N', stopbits=1,timeout=1)
             print(self.conn)
-            self.sio = io.TextIOWrapper(io.BufferedReader(self.conn, 1), newline = '\r')
+            self.sio = io.TextIOWrapper(io.BufferedReader(self.conn, 1),
+                newline = '\r')
             #self.sio._CHUNK_SIZE = 1
             return False
         except Exception as e:
@@ -73,7 +71,6 @@ class SerialThread(threading.Thread):
     def read(self):
         res = self.conn.readline()
         self.conn.flush()
-       # if len(res) > 5 :                       # piirab igasuguse sodi sattumist seriali. Samas errorid peaksid läbi tulema.
         return res
 
     def run(self):
