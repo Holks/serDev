@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+#/usr/bin/python3
 import msvcrt
 import time
 import threading

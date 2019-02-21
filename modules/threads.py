@@ -8,12 +8,7 @@ import queue
 import socket
 import serial
 from enum import Enum
-
-'''
-
-
-'''
-
+import io
 
 class ConnectionType(Enum):
     RS232 = 0
@@ -26,6 +21,7 @@ class SerialThread(threading.Thread):
         self.ser = ser
         self.queue = queue
         self._stopevent = threading.Event()
+        print("Thread")
 
     def find_serial():
         """
@@ -56,11 +52,11 @@ class SerialThread(threading.Thread):
         try:
             print("Connecting " + str(ser['port']))
             self.conn = serial.Serial(ser['port'], ser['baudrate'],
-                bytesize=8, parity='N', stopbits=1,timeout=1)
+                bytesize=8, parity='N', stopbits=1,timeout=0.1)
             print(self.conn)
-            self.sio = io.TextIOWrapper(io.BufferedReader(self.conn, 1),
+            self.sio = io.TextIOWrapper(io.BufferedRWPair(self.conn, self.conn, 1),
                 newline = '\r')
-            #self.sio._CHUNK_SIZE = 1
+            self.sio._CHUNK_SIZE = 1
             return False
         except Exception as e:
             raise e from None
@@ -78,6 +74,7 @@ class SerialThread(threading.Thread):
             try:
                 if self.conn.inWaiting():
                     text = self.sio.readlines()
+                    print(text)
                     for line in text:
                         if line and line.find('\x03') == -1:
                             self.queue.put(line.strip())
