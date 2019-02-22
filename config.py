@@ -15,7 +15,7 @@ class Config:
     if socket:
         socket = json.loads(socket)
     else:
-        socket = {'ip':'10.1.1.73', 'port':24}
+        socket = {'ip':'192.168.0.29', 'port':24}
     measurement_qty = 1
 
 DATABASE_CONFIG = {

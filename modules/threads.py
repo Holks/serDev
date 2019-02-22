@@ -48,7 +48,7 @@ class SerialThread(threading.Thread):
                 pass
         return result
 
-    def open_ser_connection(self, ser):
+    def connect(self, ser):
         try:
             print("Connecting " + str(ser['port']))
             self.conn = serial.Serial(ser['port'], ser['baudrate'],
@@ -93,11 +93,32 @@ class SocketThread(threading.Thread):
         self.queue = queue
         self.conn = sock
 
+    def connect(self, dev_socket):
+        s = None
+        print("Connecting to socket '{}'".format(dev_socket))
+        for res in socket.getaddrinfo(dev_socket['ip'], dev_socket['port'],
+                socket.AF_UNSPEC, socket.SOCK_STREAM):
+            af, socktype, proto, canonname, sa = res
+            try:
+                s = socket.socket(af, socktype, proto)
+            except OSError as msg:
+                s = None
+                continue
+            try:
+                s.settimeout(1)
+                s.connect(sa)
+            except OSError as msg:
+                s.close()
+                s = None
+                continue
+            self.conn = s
+            break
+        print(self.conn)
+        return s
+
     def write(self, data):
         try:
-            if self.conn:
-                print(data, self.conn)
-                self.conn.send(data.encode())
+            self.data = data
         except Exception as e:
             raise e
 
@@ -111,10 +132,12 @@ class SocketThread(threading.Thread):
     def run(self):
         while True:
             try:
-                data_in = self.read_socket()
+                if self.data:
+                    print(self.data)
+                    self.conn.send(self.data.encode())
+                data_in = self.read()
                 if data_in:
-                    print(data_in, float(data_in.decode()))
-                    self.queue.put(float(data_in.decode()))
+                    self.queue.put(data_in.decode())
             except socket.timeout:
                 pass
             except ValueError:

@@ -36,18 +36,19 @@ def help_print():
     print("Pressure module port: {0}".format(module['port']))
     print(ptb330.__doc__)
 
-class VaisalaPTB330():
+class VaisalaPTB330(Config):
     def __init__(self, conn_type=ConnectionType.RS232, serial_conn=None):
         self.queue = queue.Queue()
         self.conn_type = conn_type
         self.thread = None
         self.sensing_mode = None
+        self.device = None
         print(conn_type, serial_conn)
         if self.conn_type is ConnectionType.RS232:
             self.open_rs232_thread(serial_conn=serial_conn)
         elif self.conn_type is ConnectionType.SOCKET:
             self.open_socket_thread()
-        if self.thread:
+        if self.thread.isAlive():
             print("Started thread")
             # allow multiple calls to serial queue processing
             self.repeater = True
@@ -55,21 +56,32 @@ class VaisalaPTB330():
 
     def open_socket_thread(self):
         self.thread = SocketThread(self.queue)
+        self.open_socket_connection()
 
     def open_rs232_thread(self, serial_conn=None):
         print(self.thread)
         self.thread = SerialThread(self.queue)
-
         if not serial_conn:
             ser = self.get_port()
         else:
             ser = serial_conn
-        self.open_connection(ser)
+        self.open_serial_connection(ser)
 
-
-    def open_connection(self, ser):
+    def open_socket_connection(self):
+        print("Opening socket conection")
         try:
-            if not self.thread.open_ser_connection(ser):
+            print(self.socket)
+            if self.thread.connect(self.socket):
+                print("Thread start")
+                self.thread.daemon = True
+                self.thread.start()
+        except Exception as e:
+            logger.error('EXCEPTION occured', exc_info=True)
+
+    def open_serial_connection(self, ser):
+        try:
+            if not self.thread.connect(ser):
+                print("Thread start")
                 self.thread.daemon = True
                 self.thread.start()
         except SerialException as e:
@@ -77,7 +89,7 @@ class VaisalaPTB330():
         except Exception as e:
             logger.error('EXCEPTION occured', exc_info=True)
 
-    def write_device(self, data):
+    def write(self, data):
         self.thread.write(data)
 
     def get_port(self):
@@ -147,7 +159,7 @@ class VaisalaPTB330():
                 elif self.sensing_mode:
                     self.get_sensor_data(data_in)
                 else:
-                    pass#print(data_in)
+                    print(data_in)
             except queue.Empty:
                 pass
         if self.repeater:
