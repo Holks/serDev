@@ -1,7 +1,7 @@
 #!/bin/sh
 """ This script is used to boot a Docker container """
 
-source ~/aquisitor/venv/bin/activate
+source venv/bin/activate
 
 """
 Launch gunicorn:

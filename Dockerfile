@@ -3,6 +3,7 @@ FROM python:3.6-alpine
 RUN adduser -D aquisitor
 
 WORKDIR /home/aquisitor
+RUN mkdir logs
 
 COPY requirements.txt requirements.txt
 RUN python -m venv venv

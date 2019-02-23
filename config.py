@@ -4,8 +4,10 @@ import os
 import logging
 from logging.handlers import RotatingFileHandler
 import json
+from dotenv import load_dotenv
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
 
 class Config:
     serial_conn = os.environ.get("PRESSURE_MODULE_SERIAL_CONN")
