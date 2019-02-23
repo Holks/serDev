@@ -115,3 +115,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Project related
+migrations/
+app.db
+
+

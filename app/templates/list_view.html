@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<div class="container">
+  {# display section heading and add form #}
+  {% block listview_head %}{% endblock %}
+  <ul class="pagination">
+      <table id="list_view" class="table table-striped table-bordered" style="width:100%">
+          <thead>
+              <tr>
+                  {% for col in header %}
+                      <td>{{ col }}</td>
+                  {% endfor %}
+              </tr>
+          </thead>
+          <tbody>
+              {% for row in data %}
+                  <tr>
+                  {% for col in header %}
+                      <td>{{ row[col] }}</td>
+                  {% endfor %}
+                  </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+  </ul>
+</div>
+{% endblock %}
+{% block app_scripts %}
+  <!-- Form validation script -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+  <!-- Form add to database funstions as JSON -->
+  <script src="../static/js/form_add.js"></script>
+  <!-- Datatable script -->
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script>
+      $(document).ready(function () {
+          $('#list_view').DataTable();
+      });
+  </script>
+  {# view specific scripts go here #}
+  {% block listview_scripts %}{% endblock %}
+{% endblock %}

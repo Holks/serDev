@@ -5,6 +5,8 @@ import logging
 from logging.handlers import RotatingFileHandler
 import json
 
+basedir = os.path.abspath(os.path.dirname(__file__))
+
 class Config:
     serial_conn = os.environ.get("PRESSURE_MODULE_SERIAL_CONN")
     if serial_conn:
@@ -17,6 +19,11 @@ class Config:
     else:
         socket = {'ip':'192.168.0.29', 'port':24}
     measurement_qty = 1
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
+    SECRET_KEY = os.environ.get('SERDEV_SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+        'sqlite:///' + os.path.join(basedir, 'app.db')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 DATABASE_CONFIG = {
         'base_uri' : "http://10.1.1.254/klm/?t=mootmine&tulem=0",
@@ -25,8 +32,8 @@ DATABASE_CONFIG = {
         'dev_qty' : "",
         'rdg_timestamp' : "&k_stamp=0"
 }
-LOGFILE = os.environ.get("DATA_LOGGER_LOG") or 'logs/data_logger.log'
 
+LOGFILE = os.environ.get("DATA_LOGGER_LOG") or 'logs/data_logger.log'
 logger = logging.getLogger(__name__)
 # logger level INFO basically anything
 logger.setLevel(logging.INFO)
