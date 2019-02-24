@@ -18,7 +18,7 @@ lib/
 lib64/
 parts/
 sdist/
-logs/
+**/logs/
 var/
 wheels/
 pip-wheel-metadata/
@@ -68,9 +68,9 @@ instance/
 .scrapy
 
 # Sphinx documentation
-docs/*
-!docs/_build
-
+docs/_static/
+docs/_templates/
+docs/.doctrees/
 
 # PyBuilder
 target/
