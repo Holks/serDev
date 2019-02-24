@@ -5,28 +5,35 @@
 {% endblock %}
 
 {% block listview_head %}
-<h1 class="page-header">{{ heading }}
-  <span>
-    <a data-toggle="collapse" href="#add_device" role="button" aria-expanded="false" aria-controls="add_device">
-      <i class="fas fa-plus-square fa-sm"></i>
-    </a>
-  </span>
-</h1>
-<form id="add_device" class="text-left collapse" method="POST">
-	<div class="form-group">
-		<input type="text" class="form-control" id="designation" name="designation" placeholder="Designation">
-	</div>
-	<div class="form-group">
-		<input type="text" class="form-control" id="name" name="name" placeholder="Name">
-	</div>
-	<div class="form-group">
-		<input type="text" class="form-control" id="location" name="location" placeholder="Location">
-	</div>
-  <div class="form-group">
-    <input id="user_tag" name="users" type="text" data-role="tagsinput" />
-	</div>
-	<button type="submit" class="btn btn-info"> Add device</button>
-</form>
+  <h1 class="page-header">{{ heading }}
+    <span>
+      <a data-toggle="collapse" href="#add_device" role="button" aria-expanded="false" aria-controls="add_device">
+        <i class="fas fa-plus-square fa-sm"></i>
+      </a>
+    </span>
+  </h1>
+  <form id="add_device" class="text-left collapse" method="POST">
+  	<div class="form-group">
+        {{ form.designation(size=50) }}
+    </div>
+    <div class="form-group">
+        {{ form.description() }}
+    </div>
+    <div class="form-group">
+        {{ form.src_ip(size=16) }}
+        {{ form.src_port(size=5) }}
+    </div>
+    <div class="form-group">
+        {{ form.dest_uri(size=50) }}
+    </div>
+    <div class="form-group">
+        {{ form.dest_format(size=50) }}
+    </div>
+    <div class="form-group">
+        {{ form.rdg_interval() }}
+    </div>
+  	<button type="submit" class="btn btn-info"> Add device</button>
+  </form>
 {% endblock %}
 {% block listview_scripts %}
 <script>
@@ -62,7 +69,7 @@
   });
   $("#add_device").submit(function() {
 
-    
+
   });
 
   })(jQuery);

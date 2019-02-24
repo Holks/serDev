@@ -1,5 +1,4 @@
 ﻿# -*- coding: utf-8 -*-
-#/usr/bin/python3
 
 from modules.handler import send_data_klm
 from devices import ptb330

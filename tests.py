@@ -1,4 +1,3 @@
-!/usr/bin/env python
 from datetime import datetime, timedelta
 import unittest
 from app import create_app
@@ -7,8 +6,8 @@ from config import Config
 
 class TestConfig(Config):
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite://'
-
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' \
+        + os.path.join(basedir, 'test_app.db')
 
 
 class UserModelCase(unittest.TestCase):

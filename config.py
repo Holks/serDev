@@ -1,5 +1,5 @@
 ﻿# -*- coding: utf-8 -*-
-#/usr/bin/python3
+
 import os
 import logging
 from logging.handlers import RotatingFileHandler
@@ -26,6 +26,10 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    DEFAULT_DEST_URL = os.environ.get('DEFAULT_DEST_URL') or \
+        "http://10.1.1.254/klm"
+    DEFAULT_DEST_DATA_FORMAT = os.environ.get('DEFAULT_DEST_DATA_FORMAT') or \
+        "?t=mootmine&tulem=0 %s %s &s &k_stamp=0"
 
 DATABASE_CONFIG = {
         'base_uri' : "http://10.1.1.254/klm/?t=mootmine&tulem=0",
