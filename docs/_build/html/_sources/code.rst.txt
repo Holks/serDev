@@ -1,6 +1,9 @@
 Auto Generated Documentation
 ============================
 
+serDev server app packages
+--------------------------
+
 :mod:`app.__init__` -- Main package
 ***********************************
 
@@ -24,3 +27,21 @@ Auto Generated Documentation
    :members:
    :undoc-members:
    :show-inheritance:
+
+:mod:`devices.tesa` -- Tesa serial devices
+******************************************
+
+.. automodule:: devices.tesa
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+:mod:`devices.ptb330` -- Vaisala PTB30 pressure module
+******************************************************
+
+.. automodule:: devices.ptb330
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. include:: ../modules/data_logger_modules.rst

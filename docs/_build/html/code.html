@@ -43,8 +43,10 @@
             
   <div class="section" id="auto-generated-documentation">
 <h1>Auto Generated Documentation<a class="headerlink" href="#auto-generated-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="serdev-server-app-packages">
+<h2>serDev server app packages<a class="headerlink" href="#serdev-server-app-packages" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="module-app.__init__">
-<span id="app-init-main-package"></span><h2><a class="reference internal" href="#module-app.__init__" title="app.__init__"><code class="xref py py-mod docutils literal notranslate"><span class="pre">app.__init__</span></code></a> – Main package<a class="headerlink" href="#module-app.__init__" title="Permalink to this headline">¶</a></h2>
+<span id="app-init-main-package"></span><h3><a class="reference internal" href="#module-app.__init__" title="app.__init__"><code class="xref py py-mod docutils literal notranslate"><span class="pre">app.__init__</span></code></a> – Main package<a class="headerlink" href="#module-app.__init__" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="app.__init__.create_app">
 <code class="descclassname">app.__init__.</code><code class="descname">create_app</code><span class="sig-paren">(</span><em>config_class=&lt;class 'config.Config'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#app.__init__.create_app" title="Permalink to this definition">¶</a></dt>
@@ -52,7 +54,7 @@
 
 </div>
 <div class="section" id="module-app.models">
-<span id="app-models-database-models"></span><h2><a class="reference internal" href="#module-app.models" title="app.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">app.models</span></code></a> – Database models<a class="headerlink" href="#module-app.models" title="Permalink to this headline">¶</a></h2>
+<span id="app-models-database-models"></span><h3><a class="reference internal" href="#module-app.models" title="app.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">app.models</span></code></a> – Database models<a class="headerlink" href="#module-app.models" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="app.models.Device">
 <em class="property">class </em><code class="descclassname">app.models.</code><code class="descname">Device</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.Device" title="Permalink to this definition">¶</a></dt>
@@ -121,7 +123,7 @@
 
 </div>
 <div class="section" id="module-app.main.routes">
-<span id="app-main-routes-main-page-routes"></span><h2><a class="reference internal" href="#module-app.main.routes" title="app.main.routes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">app.main.routes</span></code></a> – Main page routes<a class="headerlink" href="#module-app.main.routes" title="Permalink to this headline">¶</a></h2>
+<span id="app-main-routes-main-page-routes"></span><h3><a class="reference internal" href="#module-app.main.routes" title="app.main.routes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">app.main.routes</span></code></a> – Main page routes<a class="headerlink" href="#module-app.main.routes" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="app.main.routes.add_device">
 <code class="descclassname">app.main.routes.</code><code class="descname">add_device</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.main.routes.add_device" title="Permalink to this definition">¶</a></dt>
@@ -141,6 +143,296 @@
 </dd></dl>
 
 </div>
+<div class="section" id="module-devices.tesa">
+<span id="devices-tesa-tesa-serial-devices"></span><h3><a class="reference internal" href="#module-devices.tesa" title="devices.tesa"><code class="xref py py-mod docutils literal notranslate"><span class="pre">devices.tesa</span></code></a> – Tesa serial devices<a class="headerlink" href="#module-devices.tesa" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="devices.tesa.TT20">
+<em class="property">class </em><code class="descclassname">devices.tesa.</code><code class="descname">TT20</code><span class="sig-paren">(</span><em>port</em>, <em>baudrate=4800</em><span class="sig-paren">)</span><a class="headerlink" href="#devices.tesa.TT20" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="devices.tesa.TT20.getValue">
+<code class="descname">getValue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.tesa.TT20.getValue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.tesa.TT20.read">
+<code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.tesa.TT20.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.tesa.TT20.waitValue">
+<code class="descname">waitValue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.tesa.TT20.waitValue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.tesa.TT20.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#devices.tesa.TT20.write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="devices.tesa.TesaSerialDevice">
+<em class="property">class </em><code class="descclassname">devices.tesa.</code><code class="descname">TesaSerialDevice</code><span class="sig-paren">(</span><em>port=None</em>, <em>baudrate=9600</em>, <em>bytesize=8</em>, <em>parity='N'</em>, <em>stopbits=1</em>, <em>timeout=None</em>, <em>xonxoff=False</em>, <em>rtscts=False</em>, <em>write_timeout=None</em>, <em>dsrdtr=False</em>, <em>inter_byte_timeout=None</em>, <em>exclusive=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#devices.tesa.TesaSerialDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">serial.serialposix.Serial</span></code></p>
+<dl class="method">
+<dt id="devices.tesa.TesaSerialDevice.connect">
+<code class="descname">connect</code><span class="sig-paren">(</span><em>queue</em><span class="sig-paren">)</span><a class="headerlink" href="#devices.tesa.TesaSerialDevice.connect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.tesa.TesaSerialDevice.device_close">
+<code class="descname">device_close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.tesa.TesaSerialDevice.device_close" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.tesa.TesaSerialDevice.find_devices">
+<code class="descname">find_devices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.tesa.TesaSerialDevice.find_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function for searching available serial ports</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="devices.tesa.TesaSerialDevice.get_connection">
+<code class="descname">get_connection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.tesa.TesaSerialDevice.get_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.tesa.TesaSerialDevice.get_json">
+<code class="descname">get_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.tesa.TesaSerialDevice.get_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.tesa.TesaSerialDevice.start_thread">
+<code class="descname">start_thread</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.tesa.TesaSerialDevice.start_thread" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.tesa.TesaSerialDevice.test_serial">
+<code class="descname">test_serial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.tesa.TesaSerialDevice.test_serial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-devices.ptb330">
+<span id="devices-ptb330-vaisala-ptb30-pressure-module"></span><h3><a class="reference internal" href="#module-devices.ptb330" title="devices.ptb330"><code class="xref py py-mod docutils literal notranslate"><span class="pre">devices.ptb330</span></code></a> – Vaisala PTB30 pressure module<a class="headerlink" href="#module-devices.ptb330" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="devices.ptb330.VaisalaPTB330">
+<em class="property">class </em><code class="descclassname">devices.ptb330.</code><code class="descname">VaisalaPTB330</code><span class="sig-paren">(</span><em>conn_type=&lt;ConnectionType.RS232: 0&gt;</em>, <em>serial_conn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#devices.ptb330.VaisalaPTB330" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">config.Config</span></code></p>
+<dl class="method">
+<dt id="devices.ptb330.VaisalaPTB330.apply_data_format">
+<code class="descname">apply_data_format</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.ptb330.VaisalaPTB330.apply_data_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.ptb330.VaisalaPTB330.get_port">
+<code class="descname">get_port</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.ptb330.VaisalaPTB330.get_port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.ptb330.VaisalaPTB330.get_sensor_data">
+<code class="descname">get_sensor_data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#devices.ptb330.VaisalaPTB330.get_sensor_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.ptb330.VaisalaPTB330.get_sensor_readings">
+<code class="descname">get_sensor_readings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.ptb330.VaisalaPTB330.get_sensor_readings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.ptb330.VaisalaPTB330.get_sensor_types">
+<code class="descname">get_sensor_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.ptb330.VaisalaPTB330.get_sensor_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.ptb330.VaisalaPTB330.get_serial_number">
+<code class="descname">get_serial_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.ptb330.VaisalaPTB330.get_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.ptb330.VaisalaPTB330.open_rs232_thread">
+<code class="descname">open_rs232_thread</code><span class="sig-paren">(</span><em>serial_conn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#devices.ptb330.VaisalaPTB330.open_rs232_thread" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.ptb330.VaisalaPTB330.open_serial_connection">
+<code class="descname">open_serial_connection</code><span class="sig-paren">(</span><em>ser</em><span class="sig-paren">)</span><a class="headerlink" href="#devices.ptb330.VaisalaPTB330.open_serial_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.ptb330.VaisalaPTB330.open_socket_connection">
+<code class="descname">open_socket_connection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.ptb330.VaisalaPTB330.open_socket_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.ptb330.VaisalaPTB330.open_socket_thread">
+<code class="descname">open_socket_thread</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.ptb330.VaisalaPTB330.open_socket_thread" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.ptb330.VaisalaPTB330.process_serial">
+<code class="descname">process_serial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.ptb330.VaisalaPTB330.process_serial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="devices.ptb330.VaisalaPTB330.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#devices.ptb330.VaisalaPTB330.write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="devices.ptb330.help_print">
+<code class="descclassname">devices.ptb330.</code><code class="descname">help_print</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#devices.ptb330.help_print" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="data-logger-packages">
+<h2>Data logger packages<a class="headerlink" href="#data-logger-packages" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-modules.handler">
+<span id="handler-handler-package"></span><h3><code class="xref py py-mod docutils literal notranslate"><span class="pre">handler</span></code> – handler package<a class="headerlink" href="#module-modules.handler" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="modules.handler.send_data_klm">
+<code class="descclassname">modules.handler.</code><code class="descname">send_data_klm</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.handler.send_data_klm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-modules.sensor">
+<span id="sensor-sensor-package"></span><h3><code class="xref py py-mod docutils literal notranslate"><span class="pre">sensor</span></code> – sensor package<a class="headerlink" href="#module-modules.sensor" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="modules.sensor.Sensor">
+<em class="property">class </em><code class="descclassname">modules.sensor.</code><code class="descname">Sensor</code><a class="headerlink" href="#modules.sensor.Sensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="modules.sensor.Sensor.connection">
+<code class="descname">connection</code><em class="property"> = None</em><a class="headerlink" href="#modules.sensor.Sensor.connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.sensor.Sensor.get_json_data">
+<code class="descname">get_json_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.sensor.Sensor.get_json_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="modules.sensor.Sensor.id">
+<code class="descname">id</code><em class="property"> = None</em><a class="headerlink" href="#modules.sensor.Sensor.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="modules.sensor.Sensor.quantity">
+<code class="descname">quantity</code><em class="property"> = None</em><a class="headerlink" href="#modules.sensor.Sensor.quantity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="modules.sensor.Sensor.reading">
+<code class="descname">reading</code><em class="property"> = None</em><a class="headerlink" href="#modules.sensor.Sensor.reading" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="modules.sensor.Sensor.timestamp">
+<code class="descname">timestamp</code><em class="property"> = None</em><a class="headerlink" href="#modules.sensor.Sensor.timestamp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="modules.sensor.Sensor.unit">
+<code class="descname">unit</code><em class="property"> = None</em><a class="headerlink" href="#modules.sensor.Sensor.unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.threads">
+<span id="threads-threads-package"></span><h3><code class="xref py py-mod docutils literal notranslate"><span class="pre">threads</span></code> – threads package<a class="headerlink" href="#module-modules.threads" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="modules.threads.ConnectionType">
+<em class="property">class </em><code class="descclassname">modules.threads.</code><code class="descname">ConnectionType</code><a class="headerlink" href="#modules.threads.ConnectionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="modules.threads.ConnectionType.RS232">
+<code class="descname">RS232</code><em class="property"> = 0</em><a class="headerlink" href="#modules.threads.ConnectionType.RS232" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="modules.threads.ConnectionType.SOCKET">
+<code class="descname">SOCKET</code><em class="property"> = 1</em><a class="headerlink" href="#modules.threads.ConnectionType.SOCKET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="modules.threads.SerialThread">
+<em class="property">class </em><code class="descclassname">modules.threads.</code><code class="descname">SerialThread</code><span class="sig-paren">(</span><em>queue</em>, <em>ser=None</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.threads.SerialThread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<p>Return the pathname of the KOS root directory.</p>
+<dl class="method">
+<dt id="modules.threads.SerialThread.connect">
+<code class="descname">connect</code><span class="sig-paren">(</span><em>ser</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.threads.SerialThread.connect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.threads.SerialThread.find_serial">
+<code class="descname">find_serial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.threads.SerialThread.find_serial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find all available COM ports connected to current system</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.threads.SerialThread.read">
+<code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.threads.SerialThread.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.threads.SerialThread.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.threads.SerialThread.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.threads.SerialThread.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.threads.SerialThread.write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="modules.threads.SocketThread">
+<em class="property">class </em><code class="descclassname">modules.threads.</code><code class="descname">SocketThread</code><span class="sig-paren">(</span><em>queue</em>, <em>sock=None</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.threads.SocketThread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dl class="method">
+<dt id="modules.threads.SocketThread.connect">
+<code class="descname">connect</code><span class="sig-paren">(</span><em>dev_socket</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.threads.SocketThread.connect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.threads.SocketThread.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>bytes=1024</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.threads.SocketThread.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modules.threads.SocketThread.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.threads.SocketThread.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.threads.SocketThread.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.threads.SocketThread.write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
 </div>
 
 
@@ -152,9 +444,20 @@
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Auto Generated Documentation</a><ul>
+<li><a class="reference internal" href="#serdev-server-app-packages">serDev server app packages</a><ul>
 <li><a class="reference internal" href="#module-app.__init__"><code class="docutils literal notranslate"><span class="pre">app.__init__</span></code> – Main package</a></li>
 <li><a class="reference internal" href="#module-app.models"><code class="docutils literal notranslate"><span class="pre">app.models</span></code> – Database models</a></li>
 <li><a class="reference internal" href="#module-app.main.routes"><code class="docutils literal notranslate"><span class="pre">app.main.routes</span></code> – Main page routes</a></li>
+<li><a class="reference internal" href="#module-devices.tesa"><code class="docutils literal notranslate"><span class="pre">devices.tesa</span></code> – Tesa serial devices</a></li>
+<li><a class="reference internal" href="#module-devices.ptb330"><code class="docutils literal notranslate"><span class="pre">devices.ptb330</span></code> – Vaisala PTB30 pressure module</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-logger-packages">Data logger packages</a><ul>
+<li><a class="reference internal" href="#module-modules.handler"><code class="docutils literal notranslate"><span class="pre">handler</span></code> – handler package</a></li>
+<li><a class="reference internal" href="#module-modules.sensor"><code class="docutils literal notranslate"><span class="pre">sensor</span></code> – sensor package</a></li>
+<li><a class="reference internal" href="#module-modules.threads"><code class="docutils literal notranslate"><span class="pre">threads</span></code> – threads package</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

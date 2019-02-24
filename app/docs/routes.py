@@ -11,4 +11,4 @@ def serve_sphinx_docs(path='index.html'):
 
     Care must be taken to avoid security breaches
     """
-    return send_from_directory("..", path)
+    return send_from_directory(docs_dir, path)
