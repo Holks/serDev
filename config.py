@@ -6,8 +6,20 @@ from logging.handlers import RotatingFileHandler
 import json
 from dotenv import load_dotenv
 
+"""Project root folder"""
 basedir = os.path.abspath(os.path.dirname(__file__))
+""" Load project environment variables from project ROOT dir.
+
+NB! Do not include .env file in project source control
+"""
 load_dotenv(os.path.join(basedir, '.env'))
+
+"""Project documentation directory.
+
+Documentation files powered by sphinx module.
+"""
+docs_dir=os.path.join(basedir,'docs/_build/html')
+print(docs_dir)
 
 class Config:
     serial_conn = os.environ.get("PRESSURE_MODULE_SERIAL_CONN")
@@ -38,8 +50,8 @@ DATABASE_CONFIG = {
         'dev_qty' : "",
         'rdg_timestamp' : "&k_stamp=0"
 }
-
-LOGFILE = os.environ.get("DATA_LOGGER_LOG") or 'logs/data_logger.log'
+LOGFILE = os.environ.get("DATA_LOGGER_LOG") or \
+    os.path.join(basedir, 'logs/data_logger.log')
 logger = logging.getLogger(__name__)
 # logger level INFO basically anything
 logger.setLevel(logging.INFO)

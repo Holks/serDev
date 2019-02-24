@@ -8,47 +8,24 @@ from app.basemodel import Base
 
 class Device(Base, db.Model):
     """Device database Model
-    id
-        database id
-
-    designation
-        device designation, used as
-         identification id in POST query
-
-    serial_number
-        device serial number
-
-    description
-        short description of the device,
-        maybe link to manual
-        and purpose of use
-
-    src_ip
-        device source ip address
-
-    src_port
-        device source ip port
-
-    dest_uri
-        datastream destination URI
-
-    dest_format
-        datastream format used to organise
-        dest_uri params or data in POST query
-
-    rgd_interval
-        device reading interval in minutes
     """
+    #: database id
     id = db.Column(db.Integer, primary_key=True)
+    #: device designation, used as identification id in POST query
     designation = db.Column(db.String(50), index=True, unique=True)
     serial_number = db.Column(db.String(100), index=True)
+    #: short description of the device, maybe link to manual and purpose of use
     description = db.Column(db.String(200))
+    #: device source ip address
     src_ip = db.Column(db.String(15), index=True)
+    #: device source ip port
     src_port = db.Column(db.Integer, index=True)
+    #: datastream destination URI
     dest_uri = db.Column(db.String(200), index=True)
+    #: datastream format used to organise dest_uri params or data in POST query
     dest_format = db.Column(db.String(200))
+    #: device reading interval in minutes
     rgd_interval = db.Column(db.Integer)
-
     _default_fields = [
         'designation',
         'serial_number',
@@ -60,4 +37,6 @@ class Device(Base, db.Model):
     ]
 
     def db_check(self, data):
+        """Server side data check before applying changes
+        """
         print(data)
