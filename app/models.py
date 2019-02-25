@@ -4,7 +4,7 @@ from flask import current_app
 import jwt
 from app import db
 from app.basemodel import Base
-
+import json
 
 class Device(Base, db.Model):
     """Device database Model
@@ -40,3 +40,7 @@ class Device(Base, db.Model):
         """Server side data check before applying changes
         """
         print(data)
+        self.from_dict(**data)
+        db.session.add(self)
+        db.session.commit()
+        dev = Device.query.filter_by(designation=data['designation']).first()

@@ -1,0 +1,87 @@
+{% extends "list_view.html" %}
+
+{% block app_head %}
+
+{% endblock %}
+
+{% block listview_head %}
+  <h1 class="page-header">{{ heading }}
+    <span>
+      <a data-toggle="collapse" href="#add_device" role="button" aria-expanded="false" aria-controls="add_device">
+        <i class="fas fa-plus-square fa-sm"></i>
+      </a>
+    </span>
+  </h1>
+  <form id="add_device" class="text-left collapse" method="POST">
+  	<div class="form-group">
+        {{ form.designation(size=50) }}
+    </div>
+    <div class="form-group">
+        {{ form.description() }}
+    </div>
+    <div class="form-group">
+        {{ form.src_ip(size=16) }}
+        {{ form.src_port(size=5) }}
+    </div>
+    <div class="form-group">
+        {{ form.dest_uri(size=50) }}
+    </div>
+    <div class="form-group">
+        {{ form.dest_format(size=50) }}
+    </div>
+    <div class="form-group">
+        {{ form.rdg_interval() }}
+    </div>
+  	<button type="submit" class="btn btn-info"> Add device</button>
+  </form>
+{% endblock %}
+{% block listview_scripts %}
+<script>
+  (function($) {
+  "use strict";
+
+  // Options for Message
+  //----------------------------------------------
+  var options = {
+  'btn-loading': '<i class="fa fa-spinner fa-pulse"></i>',
+  'btn-success': '<i class="fa fa-check"></i>',
+  'btn-error': '<i class="fa fa-remove"></i>',
+  'msg-success': 'All Good! Redirecting...',
+  'msg-error': 'Some error message',
+  'useAJAX': true,
+  };
+
+  $("#add_device").validate({
+  rules: {
+    designation: "required",
+    name: "required",
+    location: "required"
+  },
+  errorClass: "form-invalid",
+  errorPlacement: function( label, element ) {
+    if( element.attr( "type" ) === "checkbox" || element.attr( "type" ) === "radio" ) {
+      element.parent().append( label ); // this would append the label after all your checkboxes/labels (so the error-label will be the last element in <div class="controls"> )
+    }
+    else {
+      label.insertAfter( element ); // standard behaviour
+    }
+  }
+  });
+  $("#add_device").submit(function() {
+    remove_loading($(this));
+    if(options['useAJAX'] == true)
+    {
+      var formData = new FormData(document.getElementById('add_device'));
+      var json_obj = formToJSON( formData );
+      console.log(json_obj);
+      var json_str = JSON.stringify(json_obj);
+      console.log(json_str);
+      formData.append('form_json',json_str);
+
+      submit_form($(this), '{{ url_for('main.add_device') }}', formData, options);
+      return false;
+    }
+  });
+  })(jQuery);
+</script>
+{% endblock %}

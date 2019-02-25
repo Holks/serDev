@@ -24,6 +24,7 @@ function form_loading($form, options)
 
 function form_success($form, options)
 {
+  location.reload();
   $form.find('[type=submit]').addClass('success').html(options['btn-success']);
   $form.find('.login-form-main-message').addClass('show success').html(options['msg-success']);
 };
@@ -53,7 +54,7 @@ function submit_form($form, dest_url, formData, options)
       processData: false,
       contentType: false,
       cache: false,
-      success: form_success($form, options)//,
+      success: form_success( $form, options)//,
     });
 
     setTimeout(function() {

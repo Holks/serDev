@@ -4,7 +4,7 @@ from wtforms import StringField, SubmitField, TextAreaField, IntegerField
 from wtforms.validators import ValidationError, DataRequired, Length, \
     IPAddress, NumberRange, URL
 
-class DeviceForm(FlaskForm):
+class DeviceAddForm(FlaskForm):
     designation = StringField('Designation', validators=[DataRequired(),
         Length(max=50)], render_kw={"placeholder": "Designation"})
     description = TextAreaField('Description', validators=[Length(max=200)],
@@ -16,7 +16,7 @@ class DeviceForm(FlaskForm):
     dest_uri = StringField('Destination URL',
         validators=[DataRequired(), URL()],
         render_kw={"placeholder": "Destination URL"})
-    dest_format = StringField('Destination URL',
+    dest_format = StringField('Destination format',
         render_kw={"placeholder": "Format"})
-    rdg_interval = IntegerField('Destination URL', validators=[DataRequired()],
+    rdg_interval = IntegerField('Reading interval', validators=[DataRequired()],
         render_kw={"placeholder": "Interval [min]"})

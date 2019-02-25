@@ -2,9 +2,10 @@
 
 {% block app_content %}
 <div class="container">
-    <h2>Main page</h2>
+    <h2> {{ heading }}</h2>
     <ul class="pagination">
-
+      {# display section heading and content #}
+      {% block app_content %}{% endblock %}
     </ul>
 </div>
 {% endblock %}

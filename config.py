@@ -34,7 +34,9 @@ class Config:
         socket = {'ip':'192.168.0.29', 'port':24}
     measurement_qty = 1
     LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
+
     SECRET_KEY = os.environ.get('SERDEV_SECRET_KEY')
+    print(SECRET_KEY)
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
